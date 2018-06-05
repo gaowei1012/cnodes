@@ -14,3 +14,28 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+
+@font-face {font-family: "iconfont";
+    src: url('../assets/myfont/iconfont.eot?t=1528196282317'); /* IE9*/
+    src: url('../assets/myfont/iconfont.eot?t=1528196282317#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../assets/myfont//iconfont.woff?t=1212345675678') format('woff'),
+    url('../assets/myfont/iconfont.ttf?t=1528196282317') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+    url('../assets/myfont/iconfont.svg?t=1528196282317#iconfont') format('svg'); /* iOS 4.1- */
+  }
+  
+  .iconfont {
+    font-family:"iconfont" !important;
+    font-size:16px;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .icon-me:before { content: "\e63c"; }
+  
+  .icon-home:before { content: "\e619"; }
+  
+  .icon-video:before { content: "\e7c8"; }
+  
+  
