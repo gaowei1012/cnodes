@@ -7,12 +7,27 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>detail</ion-title>
+    <ion-title>正文</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding #content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h1>标题</h1>
+        <p text-right class="create_at">文章内容</p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col>
+          <div class="content"></div>
+        </ion-col>
+      </ion-row>
+
+  </ion-grid>
 
 </ion-content>

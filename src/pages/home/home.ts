@@ -4,6 +4,7 @@ import { IonicPage, NavController } from 'ionic-angular';
 import { RestProvider, Global } from "../../providers/rest/rest";
 import { OnInit, AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
 import { Topic } from '../../model/topic';
+import { DetailPage } from '../detail/detail';
 
 @IonicPage()
 @Component({
