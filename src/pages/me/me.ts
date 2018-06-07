@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { RestProvider, Global } from '../../providers/rest/rest';
-// import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+
+import { RestProvider, Global } from "../../providers/rest/rest";
+
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 /**
  * Generated class for the MePage page.
  *
@@ -16,11 +18,32 @@ import { RestProvider, Global } from '../../providers/rest/rest';
 })
 export class MePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  private loginUser: string;
+  private accesstoken: string;
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public barcodeScanner: BarcodeScanner,
+    public rest: RestProvider) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MePage');
+  scan() {
+    this.barcodeScanner.scan().then((barcodeData) => {
+      this.accesstoken = barcodeData.text;
+      console.log(barcodeData);
+      this.verify(this.accesstoken);
+      // Success! Barcode data is here
+    }, (err) => {
+      console.log(err);
+      // An error occurred
+    });
   }
-
+  verify(accesstoken: string) {
+    this.rest.httpPost(Global.API.verifyToken, { "accesstoken": accesstoken }, true)
+      .then(data => {
+        this.loginUser = data.loginname;
+        if (this.loginUser) {
+          localStorage.setItem('accesstoken', this.accesstoken);
+        }
+      })
+  }
 }
