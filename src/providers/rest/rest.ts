@@ -7,12 +7,25 @@ import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
+/* 接口类, 封装接口所需要的数据 */
 @Injectable()
 export class Global {
-  //接口基地址
+  
+  /**
+   * 接口基地址
+   *
+   * @static
+   * @memberof Global
+   */
   static BASEURI = 'https://cnodejs.org/api/v1';
 
-  //接口地址
+  /**
+   * 接口地址
+   *
+   * @static
+   * @type {*}
+   * @memberof Global
+   */
   static API: any = {
     getTopics: '/topics',
     getTopic: '/topic/',
@@ -39,6 +52,15 @@ export class RestProvider {
 
   constructor(public http: Http, public loadingCtrl: LoadingController, public alertCtrl: AlertController, public toastCtrl: ToastController) { }
 
+  /**
+   * 封装get请求方法
+   *
+   * @param {*} url
+   * @param {*} params
+   * @param {boolean} [loader=false]
+   * @returns
+   * @memberof RestProvider
+   */
   public httpGet(url, params, loader: boolean = false) {
     let loading = this.loadingCtrl.create({});
     if (loader) {
@@ -61,7 +83,16 @@ export class RestProvider {
       });
   }
 
-  httpPost(url: string, params, loader: boolean = false) {
+  /**
+   * 封装post请求方法
+   *
+   * @param {string} url
+   * @param {*} params
+   * @param {boolean} [loader=false]
+   * @returns
+   * @memberof RestProvider
+   */
+  public httpPost(url: string, params, loader: boolean = false) {
     let loading = this.loadingCtrl.create();
     if (loader) {
       loading.present();
@@ -82,7 +113,13 @@ export class RestProvider {
       });
   }
 
-  // 对参数进行编码
+  /**
+   * 对代码编码进行处理
+   *
+   * @param {*} params
+   * @returns
+   * @memberof RestProvider
+   */
   encode(params) {
     var str = '';
     if (params) {
@@ -97,6 +134,13 @@ export class RestProvider {
     return str;
   }
 
+  /**
+   * 封装错误处理方法
+   *
+   * @private
+   * @param {(Response | any)} error
+   * @memberof RestProvider
+   */
   private handleError(error: Response | any) {
     let msg = '';
     if (error.status == 400) {
@@ -117,6 +161,14 @@ export class RestProvider {
     }
   }
 
+
+  /**
+   * 弹出信息
+   *
+   * @param {*} message
+   * @param {*} [callback]
+   * @memberof RestProvider
+   */
   alert(message, callback?) {
     if (callback) {
       let alert = this.alertCtrl.create({
@@ -140,6 +192,13 @@ export class RestProvider {
     }
   }
 
+  /**
+   * toast
+   *
+   * @param {*} message
+   * @param {*} [callback]
+   * @memberof RestProvider
+   */
   toast(message, callback?) {
     let toast = this.toastCtrl.create({
       message: message,
@@ -152,6 +211,16 @@ export class RestProvider {
     }
   }
 
+  /**
+   * getTopics 获取文章详情数据方法
+   *  文章页数
+   *
+   * @param {string} tab
+   * @param {number} [page]
+   * @param {*} [limit=Global.LIMIT]
+   * @returns
+   * @memberof RestProvider
+   */
   getTopics(tab: string, page?: number, limit = Global.LIMIT) {
     return this.http.get(Global.BASEURI + '/topics', {
       params: {
@@ -162,6 +231,14 @@ export class RestProvider {
     }).map(this.extractData);
   }
 
+  /**
+   * 根据id,accesstoken获取文章数据方法
+   *
+   * @param {string} id
+   * @param {string} [accesstoken]
+   * @returns
+   * @memberof RestProvider
+   */
   getTopic(id: string, accesstoken?: string) {
     return this.http.get(Global.BASEURI + '/topic/' + id, {
       params: {

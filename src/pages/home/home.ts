@@ -45,6 +45,12 @@ export class HomePage implements OnInit, AfterViewInit {
     })
   }
 
+  /**
+   * 刷新页面获取数据
+   *
+   * @param {*} refresher
+   * @memberof HomePage
+   */
   doRefresh(refresher) {
     this.currentPage = 1;
     console.log('Begin async operation', refresher);
@@ -65,9 +71,17 @@ export class HomePage implements OnInit, AfterViewInit {
       infiniteScroll.complete();
     }, 500);
   }
+  /* goloin */
   gotoLogin() {
     this.navCtrl.push('LoginPage');
   }
+  /**
+   * 获取文章详情
+   * @param {string} tab
+   * @param {number} [page]
+   * @param {boolean} [loader=true]
+   * @memberof HomePage
+   */
   getTopics(tab: string, page?: number, loader = true) {
     this.rest.httpGet(Global.API.getTopics, { "tab": tab, "page": page, "limit": Global.LIMIT }, loader)
       .then((data) => {
