@@ -3,38 +3,51 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { VideoPage } from '../pages/video/video';
-import { LoginPage } from '../pages/login/login';
+import { AboutPage } from '../pages/about/about'
 import { HomePage } from '../pages/home/home';
+import { MePage } from '../pages/me/me';
+import { DetailPage } from '../pages/detail/detail';
+import { ProfilePage } from '../pages/profile/profile';
 import { TabsPage } from '../pages/tabs/tabs';
+// import { HttpService } from '../httpservice/HttpService';
+import {HttpModule } from '@angular/http';
+// import { HttpServe } from '../httpservice/HttpServe';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { RestProvider } from '../providers/rest/rest';
 
 @NgModule({
   declarations: [
     MyApp,
-    VideoPage,
-    LoginPage,
+    AboutPage,
+    MePage,
+    DetailPage,
+    ProfilePage,
     HomePage,
     TabsPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    VideoPage,
-    LoginPage,
+    MePage,
+    AboutPage,
+    DetailPage,
+    ProfilePage,
     HomePage,
     TabsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    // HttpServe,
+    RestProvider
   ]
 })
 export class AppModule {}

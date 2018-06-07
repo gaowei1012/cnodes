@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the VideoPage page.
+ * Generated class for the DetailPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,16 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-video',
-  templateUrl: 'video.html',
+  selector: 'page-detail',
+  templateUrl: 'detail.html',
 })
-export class VideoPage {
+export class DetailPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad VideoPage');
+    console.log('ionViewDidLoad DetailPage');
   }
 
 }
