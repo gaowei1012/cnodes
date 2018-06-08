@@ -6,7 +6,7 @@ import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about'
 import { HomePage } from '../pages/home/home';
 import { MePage } from '../pages/me/me';
-import { ProfilePage } from '../pages/profile/profile';
+// import { ProfilePage } from '../pages/profile/profile';
 import { TabsPage } from '../pages/tabs/tabs';
 import {HttpModule } from '@angular/http';
 
@@ -22,7 +22,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     MyApp,
     AboutPage,
     MePage,
-    ProfilePage,
+    // ProfilePage,
     HomePage,
     TabsPage
   ],
@@ -36,7 +36,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     MyApp,
     MePage,
     AboutPage,
-    ProfilePage,
+    // ProfilePage,
     HomePage,
     TabsPage
   ],
