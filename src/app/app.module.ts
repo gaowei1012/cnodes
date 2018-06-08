@@ -8,14 +8,14 @@ import { HomePage } from '../pages/home/home';
 import { MePage } from '../pages/me/me';
 import { ProfilePage } from '../pages/profile/profile';
 import { TabsPage } from '../pages/tabs/tabs';
-// import { HttpService } from '../httpservice/HttpService';
 import {HttpModule } from '@angular/http';
-// import { HttpServe } from '../httpservice/HttpServe';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RestProvider } from '../providers/rest/rest';
 import { Keyboard } from '@ionic-native/keyboard';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 @NgModule({
   declarations: [
@@ -46,7 +46,8 @@ import { Keyboard } from '@ionic-native/keyboard';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     // HttpServe,
     RestProvider,
-    Keyboard
+    Keyboard,
+    BarcodeScanner
   ]
 })
 export class AppModule {}
