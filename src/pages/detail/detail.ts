@@ -19,9 +19,9 @@ export class DetailPage {
   private showInput: boolean;
 
   constructor(public navCtrl: NavController,
-    public navParams: NavParams,
-    public rest: RestProvider,
-    private keyboard: Keyboard) {
+              public navParams: NavParams,
+              public rest: RestProvider,
+              public keyboard: Keyboard) {
     // 拿到组件传过来的值
     this.id = navParams.get("id");
   }
@@ -42,10 +42,31 @@ export class DetailPage {
   }
 
   like(reply) {
-    // code ...
+    console.log('lonk ++')
+    this.rest.httpPost(Global.API.upReply.replace(':reply_id', reply.id), this.accessToken ? {'accessToken': this.accessToken} : null, false)
+        .then(data => {
+          if (data.success) {
+            if (data.action == 'down') {
+              reply.is_uped = false;
+              reply.ups.pop();
+            } else {
+              reply.is_uped = true;
+              reply.ups.push()
+            }
+          } else {
+            // code ...
+          }
+        })
   }
 
+  writeReply() {
+    this.keyboard.disableScroll(true);
+    this.keyboard.show();
+  }
 
+  cancelReply() {
+    this.keyboard.close();
+  }
 
   onShow(e) {
     this.showInput = true;
@@ -55,6 +76,14 @@ export class DetailPage {
     this.showInput = false;
   }
 
-
+  /**
+   * 取消事件订阅
+   *
+   * @memberof DetailPage
+   */
+  ngOnDestroy() {
+    if (this.onShowSubscription) this.onShowSubscription.unsubscribe();
+    if (this.onHideSubscription) this.onHideSubscription.unsubscribe();
+  }
 
 }

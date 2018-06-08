@@ -6,7 +6,6 @@ import { MyApp } from './app.component';
 import { AboutPage } from '../pages/about/about'
 import { HomePage } from '../pages/home/home';
 import { MePage } from '../pages/me/me';
-import { DetailPage } from '../pages/detail/detail';
 import { ProfilePage } from '../pages/profile/profile';
 import { TabsPage } from '../pages/tabs/tabs';
 // import { HttpService } from '../httpservice/HttpService';
@@ -22,7 +21,6 @@ import { RestProvider } from '../providers/rest/rest';
     MyApp,
     AboutPage,
     MePage,
-    DetailPage,
     ProfilePage,
     HomePage,
     TabsPage
@@ -37,7 +35,6 @@ import { RestProvider } from '../providers/rest/rest';
     MyApp,
     MePage,
     AboutPage,
-    DetailPage,
     ProfilePage,
     HomePage,
     TabsPage

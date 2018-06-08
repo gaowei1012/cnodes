@@ -31,7 +31,14 @@ export class HomePage implements OnInit, AfterViewInit {
     this.getTopics(this.currentTab, this.currentPage, true);
   }
 
+  /**
+   *跳转到文章详情页
+   *
+   * @param {string} id
+   * @memberof HomePage
+   */
   gotoDetail(id: string) {
+    console.log('我被点击了')
     console.log("go to detail:" + id);
     this.navCtrl.push('DetailPage', {
       "id": id
