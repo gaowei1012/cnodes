@@ -1,17 +1,18 @@
 import { NgModule } from '@angular/core';
-import { LinkPipe } from './../pipes/link/link';
-import { SincePipe } from './../pipes/since/since';
-
+import { SincePipe } from './since/since';
+import { LinkPipe } from './link/link';
 @NgModule({
-    declarations: [SincePipe, LinkPipe],
+    declarations: [SincePipe,
+        LinkPipe],
     imports: [],
-    exports: [SincePipe, LinkPipe]
+    exports: [SincePipe,
+        LinkPipe]
 })
 export class PipesModule {
-    static forChild(){
+    static forChild() {
         return {
             ngModule: PipesModule,
-            providers: []
-        }
-    };
+            providers: [],
+        };
+    }
 }

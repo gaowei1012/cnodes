@@ -1,11 +1,13 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-    name: 'link'
+  name: 'link',
 })
 export class LinkPipe implements PipeTransform {
-    transform(value: string) {
-        let noPrptocolSrcRegex = /src="\/\/([\S]+)"/gi;
-        return value.replace(noPrptocolSrcRegex, 'src="https://$1"');
-    }
+  
+  transform(value: string) {
+    let noProtocolSrcRegex = /src="\/\/([\S]+)"/gi;
+    return value.replace(noProtocolSrcRegex,'src="https://$1"');
+  }
+  
 }
