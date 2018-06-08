@@ -14,6 +14,7 @@ export class MePage {
 
   private loginUser: string;
   private accesstoken: string;
+
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public barcodeScanner: BarcodeScanner,
