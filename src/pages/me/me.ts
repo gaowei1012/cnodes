@@ -35,6 +35,7 @@ export class MePage {
   verify(accesstoken: string) {
     this.rest.httpPost(Global.API.verifyToken, { "accesstoken": accesstoken }, true)
       .then(data => {
+        console.log(data)
         this.loginUser = data.loginname;
         if (this.loginUser) {
           localStorage.setItem('accesstoken', this.accesstoken);
