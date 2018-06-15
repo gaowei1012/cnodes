@@ -10,7 +10,7 @@ import 'rxjs/add/operator/toPromise';
 /* 接口类, 封装接口所需要的数据 */
 @Injectable()
 export class Global {
-  
+
   /**
    * 接口基地址
    *
@@ -50,7 +50,10 @@ export class Global {
 @Injectable()
 export class RestProvider {
 
-  constructor(public http: Http, public loadingCtrl: LoadingController, public alertCtrl: AlertController, public toastCtrl: ToastController) { }
+  constructor(public http: Http,
+    public loadingCtrl: LoadingController,
+    public alertCtrl: AlertController,
+    public toastCtrl: ToastController) { }
 
   /**
    * 封装get请求方法
@@ -62,20 +65,21 @@ export class RestProvider {
    * @memberof RestProvider
    */
   public httpGet(url, params, loader: boolean = false) {
-    let loading = this.loadingCtrl.create({});
-    if (loader) {
+    let loading = this.loadingCtrl.create({}); // 创建loading
+    if (loader) { // 加载loading
       loading.present();
     }
+    // 返回请求数据
     return this.http.get(Global.BASEURI + url + this.encode(params))
       .toPromise()
       .then(res => {
         let d = res.json();
         if (loader) {
-          loading.dismiss();
+          loading.dismiss();// 关闭loading
         }
         return d;
       })
-      .catch(error => {
+      .catch(error => { // 错误处理
         if (loader) {
           loading.dismiss();
         }

@@ -24,8 +24,8 @@ export class KeyboardAttachDirective implements OnInit, OnDestroy {
             this.onHideSubscription = this.keyboard.onKeyboardHide().subscribe(() => this.onHide());
         }
 
-    }   
-    
+    }
+
     ngOnDestroy() {
         if (this.onShowSubscription) this.onShowSubscription.unsubscribe();
         if (this.onHideSubscription) this.onHideSubscription.unsubscribe();
@@ -47,19 +47,17 @@ export class KeyboardAttachDirective implements OnInit, OnDestroy {
         this.elementRef.nativeElement.style.paddingButtom = pixels + 'px';
         this.content.resize();
 
-        this.onShowSubscription = Observable.timer(0,1)
+        this.onShowSubscription = Observable.timer(0, 1)
             .subscribe(() => {
-              if (window.pageYOffset !== 0) {
-                  window.scrollTo(0,0);
+                if (window.pageYOffset !== 0) {
+                    window.scrollTo(0, 0);
 
-                  this.onShowSubscription.unsubscribe();
+                    this.onShowSubscription.unsubscribe();
 
-                  setTimeout(() => {
-                      this.content.scrollToBottom(0)
-                  }, 100)
-              }  
+                    setTimeout(() => {
+                        this.content.scrollToBottom(0)
+                    }, 100)
+                }
             })
     }
-
-
 }

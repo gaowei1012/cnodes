@@ -16,13 +16,14 @@ export class HomePage implements OnInit, AfterViewInit {
   private currentPage: number;
   private topics: Array<Topic>;
   // private isAuthenticated: boolean;
-  constructor(public navCtrl: NavController, public rest: RestProvider) {
+  constructor(public navCtrl: NavController,
+              public rest: RestProvider) {
   }
 
+  // 生命周期函数
   ngOnInit() {
     this.currentTab = "all";
   }
-
   ngAfterViewInit() {
     this.onChangeTab(1);
   }
@@ -96,6 +97,7 @@ export class HomePage implements OnInit, AfterViewInit {
       });
   }
   extractData(data) {
+    console.log(data)
     if (this.currentPage > 1) {
       this.topics = this.topics.concat(data.data);
     } else {

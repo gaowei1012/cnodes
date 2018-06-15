@@ -1,0 +1,55 @@
+@font-face {
+  font-family: 'ioonc';
+  src: url('../assets/fonts/ioonc.eot?bb7u9j');
+  src: url('../assets/fonts/ioonc.eot?bb7u9j#iefix') format('embedded-opentype'), url('../assets/fonts/ioonic.ttf?bb7u9j') format('truetype'), url('../assets/fonts/ioonic.woff?bb7u9j') format('woff'), url('../assets/fonts/ioonic.svg?bb7u9j#ionic3') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* use !important to prevent issues with browser extensions that change fonts */
+
+.ioonc {
+  text-transform: none;
+  font-weight: normal;
+  font-style: normal;
+  font-variant: normal;
+  font-family: 'ioonc' !important;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  speak: none;
+}
+
+/* .ion-about:before {
+  content: "\e900";
+}
+
+.ion-home:before {
+  content: "\e901";
+}
+
+.ion-me:before {
+  content: "\e902";
+} */
+
+.ion-ios-adding:before,
+.ion-ios-adding-outline:before,
+.ion-ios-circle:before,
+.ion-ios-circle-outline:before,
+.ion-ios-user:before,
+.ion-ios-user-outline:before,
+.ion-ios-footmark:before,
+.ion-ios-footmark-outline:before {
+  @extend .ioonc;
+}
+
+.ion-ios-adding:before { content: "\e900";}
+.ion-ios-adding-outline:before {content: "\e900";}
+.ion-ios-circle:before {content: "\e901"}
+.ion-ios-circle-outline:before { content: "\e901"}
+.ion-ios-user:before { content: "\e902"}
+.ion-ios-user-outline:before { content: "\e902";}
+.ion-ios-footmark:before { content: "\e903"}
+.ion-ios-footmark-outline:before { content: "\903";}
+

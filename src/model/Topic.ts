@@ -1,3 +1,10 @@
+
+/**
+ * 定义常量 Topic
+ *
+ * @export
+ * @class Topic
+ */
 export class Topic {
     author: Author;
     author_id: string;
