@@ -44,7 +44,6 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    // HttpServe,
     RestProvider,
     Keyboard,
     BarcodeScanner
