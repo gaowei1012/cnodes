@@ -1,16 +1,22 @@
 <ion-header>
 
-    <ion-navbar>
-      <ion-title>我</ion-title>
-    </ion-navbar>
-  
-  </ion-header>
-  
-  
-  <ion-content padding>
-    <div>
-      <button ion-button block (click)="scan()">Scan</button>
-      <span>{{accesstoken}}</span>
-      <span>{{loginUser}}</span>
-    </div>
-  </ion-content>
+  <ion-navbar>
+    <ion-title>我的</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div>
+    <ion-card>
+      <ion-card-header> card header </ion-card-header>
+      <ion-card-content> card content </ion-card-content>
+    </ion-card>
+  </div>
+  <div>
+    <button ion-button block (click)="scan()">Scan</button>
+    <span>{{accesstoken}}</span>
+    <span>{{loginUser}}</span>
+  </div>
+</ion-content>

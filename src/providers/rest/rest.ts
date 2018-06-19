@@ -173,6 +173,7 @@ export class RestProvider {
    * @param {*} [callback]
    * @memberof RestProvider
    */
+   
   alert(message, callback?) {
     if (callback) {
       let alert = this.alertCtrl.create({

@@ -19,6 +19,7 @@ export class MePage {
     public navParams: NavParams,
     public barcodeScanner: BarcodeScanner,
     public rest: RestProvider) {
+      // coding ...
   }
 
   scan() {
